@@ -1,0 +1,10 @@
+# List of dependency source code repositories. for example:
+repositories:
+  isaac_ros_common:
+    type: git
+    url: https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git
+    version: main
+  isaac_ros_cumotion:
+    type: git
+    url: git@github.com:wuisky/isaac_ros_cumotion.git
+    version: rosconjp-tutorial

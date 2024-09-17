@@ -1,0 +1,33 @@
+services:
+  isaac_ros_dev:
+    image: wuisky/isaac_ros_dev-x86_64:latest
+    container_name: isaac_ros_dev-x86_64-container
+    privileged: true
+    ipc: host
+    network_mode: host
+    security_opt:
+      - seccomp=unconfined
+    shm_size: 512m
+    volumes:
+      - ./:/workspaces
+      - ./colcon_defaults.yaml:/home/admin/.colcon/defaults.yaml
+      - ./bashrc:/home/admin/.bashrc
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    working_dir: /workspaces/isaac_ros-dev
+    entrypoint: /usr/local/bin/scripts/workspace-entrypoint.sh
+    command: /bin/bash
+    user: "admin"
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      DISPLAY: ${DISPLAY}
+      QT_X11_NO_MITSHM: 1
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: all

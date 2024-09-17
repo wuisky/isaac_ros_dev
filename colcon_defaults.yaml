@@ -1,0 +1,14 @@
+{
+    "build": {
+      "cmake-args": ["-DCMAKE_EXPORT_COMPILE_COMMANDS=1","-Dament_cmake_copyright_FOUND=1"],
+      "symlink-install": true,
+      "build-base": "/workspaces/isaac_ros-dev/build",
+      "install-base": "/workspaces/isaac_ros-dev/install",
+      "base-paths": ["/workspaces/isaac_ros-dev/src"]
+    },
+    "test": {
+      "build-base": "/workspaces/isaac_ros-dev/build",
+      "install-base":  "/workspaces/isaac_ros-dev/install",
+      "base-paths": ["/workspaces/isaac_ros-dev/src"]
+    }
+}
